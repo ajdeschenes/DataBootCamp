@@ -1,7 +1,7 @@
 import csv
 import os 
 
-budgetpath = os.path.join('budget_data.csv')
+budgetpath = os.path.join('AMELIA-budget_data.csv')
 
 with open(budgetpath, newline = '') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
@@ -76,7 +76,7 @@ print(f"Greatest Decrease in Profits: {lowestMonth} (${lowestAmount})")
 #write output to file
 
 #open files
-f = open('file.txt', 'w') 
+f = open('AMELIA-budget_summary.txt', 'w') 
 
 #write to file
 f.write("Financial Analysis\n----------------------------\nTotal Months: "+repr(monthCount)+"\nTotal: $"+repr(netTotal)+"\nAverage Change: $"+repr(averageDelta)+"\nGreatest Increase in Profits: "+repr(greatestMonth)+" ($"+repr(greatestAmount)+"\nGreatest Decrease in Profits: "+repr(lowestMonth)+" ($"+repr(lowestAmount)+")") #this will put the info in the file

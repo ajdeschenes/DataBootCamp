@@ -1,7 +1,7 @@
 import csv
 import os 
 
-electionpath = os.path.join('election_data.csv')
+electionpath = os.path.join('AMELIA-election_data.csv')
 
 with open(electionpath, newline = '') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
@@ -52,7 +52,7 @@ print("----------------------------")
 print(f"Winner: {winner}")
 
 #write to file
-f = open("election_results.txt", "a+")
+f = open("AMELIA-election_results.txt", "a+")
 
 f.write("Election Results\n")
 f.write("----------------------------\n")
