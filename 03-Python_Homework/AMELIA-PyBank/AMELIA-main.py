@@ -14,7 +14,7 @@ with open(budgetpath, newline = '') as csv_file:
     month = "" #to hold the current month for i
     amount = 0 # tohold the amount for the current i
     lastAmount = 0 #to hold the amount for the previous i
-    deltas = [] #to hold all of the deltas
+    deltas = {} #to hold all of the deltas
     delta = 0 #to determine the change in amount from last month to current month
     averageDelta = 0 #to hold the average month to month change
     greatestAmount = 0 #to hold the highest amount
@@ -40,28 +40,25 @@ with open(budgetpath, newline = '') as csv_file:
             # test print(f"Delta {delta}")
 
             #add the change to the list of changes
-            deltas.append(delta)
-            # test print(f"Deltas {deltas}")
+            deltas[month] = delta
+            
 
-        #determine if the current amount is the greatest or lowest WRONG
-        if amount > greatestAmount:
-            greatestAmount = amount
-            greatestMonth = month
-            # test print(greatestMonth)
-            # test print(greatestAmount)
-        elif amount < lowestAmount:
-            lowestAmount = amount
-            lowestMonth = month
-            # test print(lowestMonth)
-            # test print(lowestAmount)
+        
         
         #set lastAmount
         lastAmount = amount
 
         rowCount +=1
 
+# determine the greatest or lowest amount
+# test print(f"Deltas {deltas}")
+greatestAmount = max(deltas.values())
+lowestAmount = min(deltas.values())
+greatestMonth = [month for month,amount in deltas.items() if amount == greatestAmount][0]
+lowestMonth = [month for month,amount in deltas.items() if amount == lowestAmount][0]
+
 #calculate the average month to month change WRONG
-averageDelta = sum(deltas)/len(deltas)
+averageDelta = sum(deltas.values())/len(deltas)
 
 #print findings
 print("Financial Analysis")
