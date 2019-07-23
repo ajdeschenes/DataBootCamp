@@ -92,14 +92,14 @@ d3.csv("/assets/data/data.csv").then(function(factData) {
     // Create axes labels
     chartGroup.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left + 40)
-      .attr("x", 0 - (height / 2))
+      .attr("y", 0 - (chartMargin.left)-30)
+      .attr("x", 0 - (chartMargin.height))
       .attr("cy", "1em")
       .attr("class", "aText")
       .text("Lacks Healthcare(%)");
 
     chartGroup.append("text")
-      .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
+      .attr("transform", `translate(${chartMargin.width / 2}, ${chartMargin.height + chartMargin.top + 500})`)
       .attr("class", "aText")
       .text("In Poverty(%)");
 });
